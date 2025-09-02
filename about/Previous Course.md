@@ -12,6 +12,7 @@ Here are some of my previous course grade in Shanghai Jiao Tong University.
 | Grade | Course                                                   |
 |-------|----------------------------------------------------------|
 | **A+** | **MATH1560J Honors Calculus II**                            |
+|       | **MATH2550J Honors Calculus III**                           |
 |       | **MATH2560J Honors Calculus IV**                            |
 |       | PHYS1410J Physics Lab I                                 |
 |       | ECE2150J Intro to Circuits                              |
@@ -20,7 +21,6 @@ Here are some of my previous course grade in Shanghai Jiao Tong University.
 | **A**  | CHEM2110J Chemistry Lab                                |
 |       | ENGR1000J Intro to Engineering                          |
 |       | **ENGR1510J Accelerated Intro to Computers & Programming**  |
-|       | **MATH2550J Honors Calculus III**                           |
 |       | PHYS2410J Physics Lab II                                |
 |       | ECE2160J Intro to Signals and Systems                   |
 |       | TC3000J Technical Communication                         |
