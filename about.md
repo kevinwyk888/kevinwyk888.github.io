@@ -33,8 +33,22 @@ I'm expected to obtain dual bachelor's degree from SJTU and UMich.
 
 - [Project](/about/project_ov/) Overview
 
+--- 
+
+### Current Research Orientation
+
+1. Emotion Segmentation and Recognition in the Context of Driving Using Machine Learning. ([Lab Website](https://ihub.engin.umich.edu/))
+
+2. Optimization and Computational Modeling.
+  
 ---
 ### Employment History
+
+#### University of Michigan
+
+- **Intelligence & Human Augmentation Lab**
+*2025.09 – Now*  
+Undergraduate Research Assistant
 
 #### Shanghai Jiao Tong University  
 

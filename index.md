@@ -6,7 +6,7 @@ nav_order: 1
 
 # Brief Introduction
 
-This is a personal website, mainly introducing the author (myself), some of my project experience and individual understanding in the courses I have taken.
+This is a personal website, mainly introducing the author (myself), some of my project experience and personal understanding in the courses I have taken.
 
 I'm currently based on Ann Arbor, United States and Shanghai, China.
 
