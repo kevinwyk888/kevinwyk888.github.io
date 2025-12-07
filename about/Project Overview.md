@@ -17,6 +17,18 @@ Automatic image colorization is a significant challenge in computer vision, with
 
 [Code (now private)](https://github.com/kevinwyk888/ECE488-Project){: .btn .btn-blue } 
 
+### Probabilistic Methods in Engineering Project
+
+### Abstract
+
+Fatal police shootings in the United States have long been a critical issue, raising concerns about social security and trust. This project analyzes the patterns of fatal police shootings in the US from 2015 to 2025. We use software like \textit{Mathematica} to visualize the data according to different classifications, apply the methods of hypothesis testing to test the Poisson distribution and weekdays' or months' independence, calculate the confidence intervals for parameters, and predict intervals for the number of observations. Furthermore, we extend our analysis to the difference in black victimization rates between democratic and republican states, and other external factors' influence represented by body camera's carrying.
+
+Our analysis reveals that the daily frequency of fatal police shootings follows a Poisson distribution with a maximum-likelihood estimated parameter of 2.85464. A goodness-of-fit test supports this assumption, but the COVID-19 pandemic influences the distribution. The multinomial statistics indicate that variations in shooting frequencies on weekdays and months are not a random chance, but they are dependent. Further analysis displays the statistical significance of a higher proportion of black victims in democratic states than in republican states, and the proportion of black victims in incidents involving body cameras is statistically significantly higher than in unrecorded incidents.
+
+This study provides valuable insights into the patterns and influencing factors of fatal police shootings, and also serves as a good practice for various statistical analysis methods.
+
+[View Report](files/401_Project.pdf){: .btn .btn-purple}
+
 ### Game Development: 
 
 **1. Soul Symphony**
