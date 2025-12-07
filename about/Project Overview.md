@@ -44,3 +44,12 @@ Soul Symphony is a 2D rhythm-platformer game where players compose music to shap
 [Game Link](https://focs.ji.sjtu.edu.cn/silverfocs/demo/2024/p1team12/) 
 
 A 2-D classic platform collision game.
+
+### 2024 MCM/ICM
+
+### Abstract
+
+This project develops a comprehensive decision-making framework to support insurers, property developers, and community leaders facing increasing risks from climate-driven extreme-weather events. Using more than three decades of disaster and economic data, we construct an Analytic Hierarchy Process (AHP) model to quantify regional insurance payout risk and define a profitability index for underwriting decisions. We further employ ARIMA time-series forecasting—optimized through exhaustive parameter search—to predict future profitability trends and evaluate regional sustainability for insurance providers. For property developers, we extend the model by redefining risk variables and weighting schemes, enabling long-term assessment of development feasibility across U.S. states. Finally, we design a Multilayer Perceptron (MLP) preservation model to evaluate the cultural and economic value of historically significant buildings, achieving 94.7% accuracy. Together, these models offer a unified analytical pipeline for underwriting decisions, development planning, and cultural heritage preservation under worsening climate conditions.
+
+
+[View Report](files/2405335.pdf){: .btn .btn-purple}
