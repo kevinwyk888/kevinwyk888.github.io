@@ -17,7 +17,7 @@ I'm expected to obtain dual bachelor's degree from SJTU and UMich.
 
 - **2023.8 – 2027.8**  Shanghai Jiao Tong University  
   *B.S. Electrical and Computer Engineering*  
-  GPA: 3.80/4.00
+  GPA: 3.78/4.00
 
 - **2025.8 – 2027.5**  University of Michigan, Ann Arbor  
   *B.S. Industrial and Operations Engineering*  
