@@ -1,0 +1,159 @@
+---
+import type { ExperienceSectionContent } from "../i18n/types";
+
+interface Props {
+  section: ExperienceSectionContent;
+}
+
+const { section } = Astro.props;
+---
+
+<section class="section" id={section.id}>
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <h2>{section.title}</h2>
+        <p class="lede">{section.intro}</p>
+      </div>
+    </div>
+
+    <div class="timeline-grid">
+      {section.items.map((item, index) => (
+        <article class:list={["surface-card", "timeline-card", { reverse: index % 2 === 1 }]}>
+          <div class="timeline-head">
+            <span class="timeline-kind">{item.kind}</span>
+            <span class="timeline-dates">{item.dates}</span>
+          </div>
+          <h3>{item.role}</h3>
+          <p class="timeline-org">{item.organization}</p>
+          <p class="timeline-location">{item.location}</p>
+          <p class="timeline-summary">{item.summary}</p>
+          <ul>
+            {item.highlights.map((point) => (
+              <li>{point}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem 3rem;
+  }
+
+  .timeline-grid::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    width: 1px;
+    background: linear-gradient(180deg, rgba(31, 75, 123, 0.1), rgba(31, 75, 123, 0.32), rgba(31, 75, 123, 0.1));
+    transform: translateX(-50%);
+  }
+
+  .timeline-card {
+    position: relative;
+    display: grid;
+    gap: 0.5rem;
+    padding: 1.45rem;
+  }
+
+  .timeline-card::before {
+    content: "";
+    position: absolute;
+    top: 1.6rem;
+    right: -2rem;
+    width: 0.82rem;
+    height: 0.82rem;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 8px rgba(245, 246, 248, 0.95);
+  }
+
+  .timeline-card.reverse {
+    grid-column: 2;
+  }
+
+  .timeline-card.reverse::before {
+    left: -2rem;
+    right: auto;
+  }
+
+  .timeline-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .timeline-kind {
+    display: inline-flex;
+    padding: 0.4rem 0.72rem;
+    border-radius: 999px;
+    background: rgba(217, 229, 243, 0.75);
+    color: var(--accent-strong);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .timeline-dates,
+  .timeline-location {
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .timeline-card h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+  }
+
+  .timeline-org,
+  .timeline-summary {
+    margin: 0;
+  }
+
+  .timeline-org {
+    font-weight: 650;
+    color: var(--accent-strong);
+    white-space: pre-line;
+  }
+
+  .timeline-card ul {
+    margin: 0.2rem 0 0;
+    padding-left: 1.1rem;
+  }
+
+  @media (max-width: 920px) {
+    .timeline-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding-left: 1.1rem;
+    }
+
+    .timeline-grid::before {
+      left: 0;
+      transform: none;
+    }
+
+    .timeline-card,
+    .timeline-card.reverse {
+      grid-column: auto;
+    }
+
+    .timeline-card::before,
+    .timeline-card.reverse::before {
+      left: -1.55rem;
+      right: auto;
+      box-shadow: 0 0 0 6px rgba(245, 246, 248, 0.95);
+    }
+  }
+</style>

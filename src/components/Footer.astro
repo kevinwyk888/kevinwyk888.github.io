@@ -1,0 +1,52 @@
+---
+import type { FooterContent } from "../i18n/types";
+
+const { note, copyright, links } = Astro.props as FooterContent;
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-note">{note}</p>
+    <div class="footer-links">
+      {links.map((link) => (
+        <a href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noreferrer" : undefined}>
+          {link.label}
+        </a>
+      ))}
+    </div>
+    <p class="footer-copy">{copyright}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 0 0 2rem;
+  }
+
+  .footer-inner {
+    display: grid;
+    gap: 0.9rem;
+    padding: 1.4rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .footer-note,
+  .footer-copy {
+    margin: 0;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 650;
+  }
+</style>

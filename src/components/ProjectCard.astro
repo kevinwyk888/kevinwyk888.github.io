@@ -1,0 +1,131 @@
+---
+import type { ActionLink, Project } from "../i18n/types";
+
+interface Props {
+  project: Project;
+  compact?: boolean;
+}
+
+const { project, compact = false } = Astro.props;
+const actions = [project.reportLink, project.githubLink, project.demoLink].filter(Boolean) as ActionLink[];
+---
+
+<article class:list={["surface-card", "project-card", { compact }]}>
+  <div class="project-media">
+    {
+      project.image ? (
+        <img src={project.image} alt={project.title} loading="lazy" />
+      ) : (
+        <div class="project-placeholder">
+          <span>{project.year}</span>
+        </div>
+      )
+    }
+  </div>
+
+  <div class="project-body">
+    <p class="project-year">{project.year}</p>
+    <h3>{project.title}</h3>
+    <p class="project-abstract">{project.abstract}</p>
+
+    <div class="tag-row">
+      {project.tags.map((tag) => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+
+    {actions.length > 0 && (
+      <div class="project-actions">
+        {actions.map((action) => (
+          <a
+            class="button secondary project-link"
+            href={action.href}
+            target={action.external ? "_blank" : undefined}
+            rel={action.external ? "noreferrer" : undefined}
+          >
+            {action.label}
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</article>
+
+<style>
+  .project-card {
+    overflow: hidden;
+  }
+
+  .project-media {
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, rgba(31, 75, 123, 0.2), rgba(217, 229, 243, 0.8));
+  }
+
+  .project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-placeholder {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.8), transparent 32%),
+      linear-gradient(135deg, rgba(31, 75, 123, 0.92), rgba(71, 114, 162, 0.7));
+  }
+
+  .project-placeholder span {
+    color: rgba(255, 255, 255, 0.92);
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+  }
+
+  .project-body {
+    display: grid;
+    gap: 0.85rem;
+    padding: 1.45rem;
+  }
+
+  .project-year {
+    margin: 0;
+    color: var(--accent);
+    font-size: 0.86rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .project-card h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .project-abstract {
+    margin: 0;
+    color: var(--text);
+  }
+
+  .compact .project-abstract {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .project-link {
+    padding-inline: 0.95rem;
+  }
+</style>

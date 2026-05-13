@@ -1,0 +1,75 @@
+---
+import type { AboutContent } from "../i18n/types";
+
+interface Props {
+  section: AboutContent;
+}
+
+const { section } = Astro.props;
+---
+
+<section class="section" id={section.id}>
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <h2>{section.title}</h2>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <article class="surface-card about-copy">
+        {section.intro.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+
+        <div class="pill-row">
+          {section.chips.map((chip) => (
+            <span class="pill">{chip}</span>
+          ))}
+        </div>
+      </article>
+
+      <aside class="surface-card about-side">
+        <ul class="meta-list">
+          {section.highlights.map((item) => (
+            <li>
+              <strong>{item.label}</strong>
+              <span>{item.value}</span>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
+    gap: 1.5rem;
+  }
+
+  .about-copy,
+  .about-side {
+    padding: clamp(1.4rem, 3vw, 2rem);
+  }
+
+  .about-copy p {
+    margin: 0 0 1rem;
+  }
+
+  .about-copy p:last-of-type {
+    margin-bottom: 1.3rem;
+  }
+
+  .about-side {
+    background: linear-gradient(180deg, rgba(245, 249, 252, 0.95), rgba(225, 233, 243, 0.75));
+  }
+
+  @media (max-width: 880px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

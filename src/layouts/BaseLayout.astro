@@ -1,0 +1,51 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import type { FooterContent, Language, NavItem } from "../i18n/types";
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Language;
+  brand: string;
+  brandMark?: string;
+  nav: NavItem[];
+  activeKey: string;
+  currentHref: string;
+  switchHref: string;
+  menuLabel: string;
+  footer: FooterContent;
+}
+
+const { title, description, lang, brand, brandMark, nav, activeKey, currentHref, switchHref, menuLabel, footer } =
+  Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#163456" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <Header
+      brand={brand}
+      brandMark={brandMark}
+      nav={nav}
+      activeKey={activeKey}
+      currentLang={lang}
+      currentHref={currentHref}
+      switchHref={switchHref}
+      menuLabel={menuLabel}
+    />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer {...footer} />
+  </body>
+</html>

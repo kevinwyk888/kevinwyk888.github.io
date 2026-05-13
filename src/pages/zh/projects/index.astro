@@ -1,0 +1,49 @@
+---
+import PageIntro from "../../../components/PageIntro.astro";
+import ProjectCard from "../../../components/ProjectCard.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import content from "../../../i18n/zh";
+import { getHeaderNav } from "../../../i18n/getHeaderNav";
+---
+
+<BaseLayout
+  title={`${content.projectsPage.title} | ${content.site.brand}`}
+  description={content.projectsPage.description}
+  lang={content.lang}
+  brand={content.site.brand}
+  brandMark={content.site.brandMark}
+  nav={getHeaderNav(content)}
+  activeKey="projects"
+  currentHref="/zh/projects/"
+  switchHref="/en/projects/"
+  menuLabel={content.header.menuLabel}
+  footer={content.footer}
+>
+  <PageIntro intro={content.projectsPage} />
+
+  <section class="section">
+    <div class="container">
+      <p class="page-note">{content.projectsPage.note}</p>
+      <div class="project-grid">
+        {content.projectsPage.items.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 980px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

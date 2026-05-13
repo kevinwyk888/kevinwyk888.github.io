@@ -1,0 +1,75 @@
+---
+import PageIntro from "../../../components/PageIntro.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import content from "../../../i18n/en";
+import { getHeaderNav } from "../../../i18n/getHeaderNav";
+---
+
+<BaseLayout
+  title={`${content.researchPage.title} | ${content.site.brand}`}
+  description={content.researchPage.description}
+  lang={content.lang}
+  brand={content.site.brand}
+  brandMark={content.site.brandMark}
+  nav={getHeaderNav(content)}
+  activeKey="research"
+  currentHref="/en/research/"
+  switchHref="/zh/research/"
+  menuLabel={content.header.menuLabel}
+  footer={content.footer}
+>
+  <PageIntro intro={content.researchPage} />
+
+  <section class="section">
+    <div class="container research-grid">
+      {content.researchPage.sections.map((section) => (
+        <article class="surface-card research-card">
+          <h2>{section.title}</h2>
+          {section.body.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+          {section.items && (
+            <ul>
+              {section.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  .research-card {
+    padding: 1.5rem;
+  }
+
+  .research-card h2 {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+  }
+
+  .research-card p {
+    margin: 0 0 0.8rem;
+  }
+
+  .research-card ul {
+    margin: 0.3rem 0 0;
+    padding-left: 1.1rem;
+  }
+
+  @media (max-width: 920px) {
+    .research-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

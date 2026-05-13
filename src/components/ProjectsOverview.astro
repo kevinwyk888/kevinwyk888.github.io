@@ -1,0 +1,50 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import type { ProjectsSectionContent } from "../i18n/types";
+
+interface Props {
+  section: ProjectsSectionContent;
+}
+
+const { section } = Astro.props;
+const featured = section.items.filter((item) => item.featured);
+const items = (featured.length > 0 ? featured : section.items).slice(0, 3);
+---
+
+<section class="section" id={section.id}>
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <h2>{section.title}</h2>
+        <p class="lede">{section.intro}</p>
+      </div>
+      <a class="button ghost" href={section.cta.href}>{section.cta.label}</a>
+    </div>
+
+    {section.note && <p class="page-note projects-note">{section.note}</p>}
+
+    <div class="projects-grid">
+      {items.map((project) => (
+        <ProjectCard project={project} compact={true} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-note {
+    margin-bottom: 1.2rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  @media (max-width: 1020px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,156 @@
+---
+import type { CoursesSectionContent } from "../i18n/types";
+
+interface Props {
+  section: CoursesSectionContent;
+}
+
+const { section } = Astro.props;
+const bubbleSize = (weight: number) => `${92 + weight * 14}px`;
+const introLines = section.intro.split("\n");
+const noteLines = section.note.split("\n");
+---
+
+<section class="section courses-section" id={section.id}>
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <h2>{section.title}</h2>
+        <p class="lede course-copy">
+          {introLines.map((line, index) => (
+            <>
+              {index > 0 && <br />}
+              {line}
+            </>
+          ))}
+        </p>
+      </div>
+      <p class="page-note course-copy">
+        {noteLines.map((line, index) => (
+          <>
+            {index > 0 && <br />}
+            {line}
+          </>
+        ))}
+      </p>
+    </div>
+
+    <div class="course-groups">
+      {section.groups.map((group) => (
+        <article class="surface-card course-group">
+          <div class="course-group-head">
+            <div>
+              <h3>{group.name}</h3>
+              {group.subtitle && <p class="course-group-subtitle">{group.subtitle}</p>}
+            </div>
+            <span class="course-accent" style={`background:${group.accent};`}></span>
+          </div>
+
+          <ul class="bubble-pack">
+            {group.courses.map((course) => (
+              <li
+                class="bubble"
+                style={`--bubble-size:${bubbleSize(course.weight)}; --bubble-accent:${group.accent};`}
+                title={course.code ? `${course.title} (${course.code})` : course.title}
+                aria-label={`${course.title}${course.code ? `, ${course.code}` : ""}${course.detail ? `, ${course.detail}` : ""}`}
+              >
+                <span class="bubble-title">{course.title}</span>
+                {course.detail && <span class="bubble-meta">{course.detail}</span>}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .course-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  .course-group {
+    padding: 1.4rem;
+  }
+
+  .course-copy {
+    white-space: pre-line;
+  }
+
+  .course-group-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .course-group h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+  }
+
+  .course-group-subtitle {
+    margin: 0.3rem 0 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .course-accent {
+    display: inline-flex;
+    width: 2.8rem;
+    height: 0.7rem;
+    border-radius: 999px;
+  }
+
+  .bubble-pack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .bubble {
+    display: grid;
+    place-items: center;
+    gap: 0.38rem;
+    width: clamp(8.1rem, var(--bubble-size), 12rem);
+    height: clamp(8.1rem, var(--bubble-size), 12rem);
+    padding: 1.1rem;
+    border: 1px solid rgba(22, 52, 86, 0.08);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at top, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.62)),
+      var(--bubble-accent);
+    text-align: center;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  }
+
+  .bubble-title {
+    font-size: clamp(0.78rem, 0.72rem + 0.18vw, 0.9rem);
+    font-weight: 700;
+    line-height: 1.18;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .bubble-meta {
+    color: var(--muted);
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 920px) {
+    .course-groups {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

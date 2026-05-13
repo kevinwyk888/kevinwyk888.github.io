@@ -1,0 +1,43 @@
+---
+import type { Language } from "../i18n/types";
+
+interface Props {
+  currentLang: Language;
+  currentHref: string;
+  switchHref: string;
+}
+
+const { currentLang, currentHref, switchHref } = Astro.props;
+const englishHref = currentLang === "en" ? currentHref : switchHref;
+const chineseHref = currentLang === "zh" ? currentHref : switchHref;
+---
+
+<div class="language-switcher" aria-label="Language switcher">
+  <a href={englishHref} class:list={["language-option", { active: currentLang === "en" }]}>EN</a>
+  <a href={chineseHref} class:list={["language-option", { active: currentLang === "zh" }]}>中文</a>
+</div>
+
+<style>
+  .language-switcher {
+    display: inline-flex;
+    padding: 0.22rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(14px);
+  }
+
+  .language-option {
+    padding: 0.45rem 0.78rem;
+    border-radius: 999px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+
+  .language-option.active {
+    background: var(--accent);
+    color: #fff;
+  }
+</style>

@@ -1,0 +1,122 @@
+---
+import type { HeroContent } from "../i18n/types";
+
+interface Props {
+  hero: HeroContent;
+}
+
+const { hero } = Astro.props;
+---
+
+<section class="hero-section" id="home">
+  <div
+    class="hero-media"
+    role="img"
+    aria-label={hero.bannerAlt}
+    style={`background-image: linear-gradient(135deg, rgba(15, 29, 48, 0.45), rgba(31, 75, 123, 0.18)), url(${hero.bannerImage});`}
+  ></div>
+
+  <div class="container hero-frame">
+    <div class="hero-card surface-card">
+      <div class="hero-copy">
+        <p class="eyebrow">{hero.eyebrow}</p>
+        <h1>{hero.title}</h1>
+        <p class="hero-subtitle">{hero.subtitle}</p>
+        <p class="lede hero-description">{hero.description}</p>
+
+        <div class="pill-row">
+          {hero.badges.map((badge) => (
+            <span class="pill">{badge}</span>
+          ))}
+        </div>
+
+        <div class="button-row hero-actions">
+          <a class="button primary" href={hero.primaryAction.href}>{hero.primaryAction.label}</a>
+          <a class="button secondary" href={hero.secondaryAction.href}>{hero.secondaryAction.label}</a>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <ul class="meta-list">
+          {hero.stats.map((stat) => (
+            <li>
+              <strong>{stat.label}</strong>
+              <span>{stat.value}</span>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    padding-top: 1rem;
+  }
+
+  .hero-media {
+    height: clamp(210px, 32vw, 330px);
+    margin-inline: auto;
+    width: min(1200px, calc(100% - 2rem));
+    border-radius: 32px;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 26px 80px rgba(17, 30, 48, 0.18);
+  }
+
+  .hero-frame {
+    margin-top: -3.5rem;
+  }
+
+  .hero-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(270px, 0.85fr);
+    gap: 1.6rem;
+    padding: clamp(1.6rem, 3vw, 2.25rem);
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.7rem, 6vw, 4.5rem);
+    margin-bottom: 0.55rem;
+  }
+
+  .hero-subtitle {
+    margin: 0 0 1rem;
+    color: var(--accent-strong);
+    font-size: 1.08rem;
+    font-weight: 650;
+    white-space: pre-line;
+  }
+
+  .hero-description {
+    margin-bottom: 1.3rem;
+  }
+
+  .hero-actions {
+    margin-top: 1.4rem;
+  }
+
+  .hero-side {
+    padding: 1.2rem;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(217, 229, 243, 0.68), rgba(245, 248, 252, 0.95));
+  }
+
+  @media (max-width: 880px) {
+    .hero-frame {
+      margin-top: -2.2rem;
+    }
+
+    .hero-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .hero-media {
+      width: min(1200px, calc(100% - 1.25rem));
+      border-radius: 24px;
+    }
+  }
+</style>

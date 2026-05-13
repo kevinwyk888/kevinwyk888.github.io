@@ -1,0 +1,336 @@
+---
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import type { Language, NavItem } from "../i18n/types";
+
+interface Props {
+  brand: string;
+  brandMark?: string;
+  nav: NavItem[];
+  activeKey: string;
+  currentLang: Language;
+  currentHref: string;
+  switchHref: string;
+  menuLabel: string;
+}
+
+const { brand, brandMark, nav, activeKey, currentLang, currentHref, switchHref, menuLabel } = Astro.props;
+const homeHref = `/${currentLang}/`;
+const isActive = (item: NavItem) =>
+  item.key === activeKey || item.children?.some((child) => child.key === activeKey);
+const brandParts = brand.split(/\s+/).filter(Boolean);
+const computedBrandMark =
+  brandParts.length >= 2
+    ? brandParts
+        .slice(0, 2)
+        .map((part) => part[0]?.toUpperCase() ?? "")
+        .join("")
+    : brand.slice(0, 2).toUpperCase();
+const finalBrandMark = brandMark?.trim() || computedBrandMark;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={homeHref}>
+      <span class="brand-mark">{finalBrandMark}</span>
+      <span class="brand-text">{brand}</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      {
+        nav.map((item) =>
+          item.children && item.children.length > 0 ? (
+            <div class="nav-group">
+              <a href={item.href} class:list={["nav-link", "nav-parent", { active: isActive(item) }]}>
+                {item.label}
+              </a>
+              <div class="nav-dropdown">
+                {item.children.map((child) => (
+                  <a href={child.href} class:list={["dropdown-link", { active: child.key === activeKey }]}>
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a href={item.href} class:list={["nav-link", { active: item.key === activeKey }]}>
+              {item.label}
+            </a>
+          ),
+        )
+      }
+    </nav>
+
+    <div class="header-actions">
+      <LanguageSwitcher currentLang={currentLang} currentHref={currentHref} switchHref={switchHref} />
+    </div>
+  </div>
+
+  <details class="mobile-nav surface-card">
+    <summary>{menuLabel}</summary>
+    <nav class="mobile-nav-links" aria-label="Mobile navigation">
+      {
+        nav.map((item) =>
+          item.children && item.children.length > 0 ? (
+            <div class="mobile-group">
+              <a href={item.href} class:list={["mobile-link", "mobile-parent", { active: isActive(item) }]}>
+                {item.label}
+              </a>
+              <div class="mobile-children">
+                {item.children.map((child) => (
+                  <a href={child.href} class:list={["mobile-sublink", { active: child.key === activeKey }]}>
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a href={item.href} class:list={["mobile-link", { active: item.key === activeKey }]}>
+              {item.label}
+            </a>
+          ),
+        )
+      }
+      <div class="mobile-switcher">
+        <LanguageSwitcher currentLang={currentLang} currentHref={currentHref} switchHref={switchHref} />
+      </div>
+    </nav>
+  </details>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    padding-top: 0.8rem;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 18px 40px rgba(17, 30, 48, 0.08);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-right: auto;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .brand-text {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+  }
+
+  .desktop-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  .nav-group {
+    position: relative;
+  }
+
+  .nav-link,
+  .mobile-link {
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease;
+  }
+
+  .nav-link:hover,
+  .mobile-link:hover,
+  .nav-link.active,
+  .mobile-link.active {
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+  }
+
+  .nav-parent {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .nav-parent::after {
+    content: "";
+    display: inline-block;
+    width: 0.42rem;
+    height: 0.42rem;
+    margin-top: -0.08rem;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    opacity: 0.72;
+  }
+
+  .nav-dropdown {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 0.65rem);
+    min-width: 14rem;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 18px 36px rgba(17, 30, 48, 0.12);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.2rem);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  .nav-group:hover .nav-dropdown,
+  .nav-group:focus-within .nav-dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .dropdown-link {
+    display: block;
+    padding: 0.72rem 0.85rem;
+    border-radius: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 600;
+  }
+
+  .dropdown-link:hover,
+  .dropdown-link.active {
+    background: rgba(217, 229, 243, 0.72);
+    color: var(--accent-strong);
+  }
+
+  .header-actions {
+    margin-left: auto;
+  }
+
+  .mobile-nav {
+    display: none;
+    margin: 0.65rem auto 0;
+    width: min(1120px, calc(100% - 2rem));
+    padding: 0.85rem 1rem 1rem;
+  }
+
+  .mobile-nav summary {
+    cursor: pointer;
+    list-style: none;
+    font-weight: 700;
+    color: var(--accent-strong);
+  }
+
+  .mobile-nav summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-nav-links {
+    display: grid;
+    gap: 0.4rem;
+    margin-top: 0.9rem;
+  }
+
+  .mobile-link {
+    border: 1px solid rgba(22, 52, 86, 0.08);
+    background: rgba(247, 249, 252, 0.8);
+  }
+
+  .mobile-group {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .mobile-parent {
+    font-weight: 700;
+  }
+
+  .mobile-children {
+    display: grid;
+    gap: 0.35rem;
+    padding-left: 0.8rem;
+    border-left: 1px solid rgba(22, 52, 86, 0.12);
+  }
+
+  .mobile-sublink {
+    padding: 0.6rem 0.85rem;
+    border-radius: 0.9rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    background: rgba(250, 251, 253, 0.92);
+  }
+
+  .mobile-sublink:hover,
+  .mobile-sublink.active {
+    background: rgba(217, 229, 243, 0.72);
+    color: var(--accent-strong);
+  }
+
+  .mobile-switcher {
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 1060px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .mobile-nav {
+      display: block;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .header-inner {
+      padding: 0.85rem 1rem;
+    }
+
+    .brand-text {
+      font-size: 1rem;
+    }
+
+    .header-actions {
+      display: none;
+    }
+
+    .mobile-nav {
+      width: min(1120px, calc(100% - 1.25rem));
+    }
+  }
+</style>
