@@ -61,6 +61,7 @@ const zh: SiteContent = {
         { label: "所在地点", value: "安娜堡 / 上海" },
         { label: "核心兴趣", value: "机器学习、运筹优化、数据分析" },
         { label: "常用语言", value: "中文、英文" },
+        { label: "注意", value: "由于网站文字初始版本是英文，部分中文表述可能不太标准，敬请见谅" },
       ],
       primaryAction: { label: "研究方向", href: "/zh/research/" },
       secondaryAction: { label: "项目总览", href: "/zh/projects/" },
