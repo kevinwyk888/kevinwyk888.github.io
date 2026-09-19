@@ -14,7 +14,12 @@ const actions = [project.reportLink, project.githubLink, project.demoLink].filte
   <div class="project-media">
     {
       project.image ? (
-        <img src={project.image} alt={project.title} loading="lazy" />
+        <img
+          src={project.image}
+          alt={project.title}
+          loading="lazy"
+          style={project.imageFit ? `object-fit: ${project.imageFit};` : undefined}
+        />
       ) : (
         <div class="project-placeholder">
           <span>{project.year}</span>
@@ -25,6 +30,7 @@ const actions = [project.reportLink, project.githubLink, project.demoLink].filte
 
   <div class="project-body">
     <p class="project-year">{project.year}</p>
+    {project.program && <p class="project-program">{project.program}</p>}
     <h3>{project.title}</h3>
     <p class="project-abstract">{project.abstract}</p>
 
@@ -105,6 +111,17 @@ const actions = [project.reportLink, project.githubLink, project.demoLink].filte
     font-family: var(--font-serif);
     font-size: 1.5rem;
     line-height: 1.2;
+  }
+
+  .project-program {
+    justify-self: start;
+    margin: 0;
+    padding: 0.35rem 0.7rem;
+    border-radius: var(--radius-sm);
+    background: var(--accent-strong);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
   }
 
   .project-abstract {

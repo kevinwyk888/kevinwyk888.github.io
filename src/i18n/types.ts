@@ -113,12 +113,14 @@ export interface CoursesSectionContent {
 export interface Project {
   title: string;
   year: string;
+  program?: string;
   abstract: string;
   tags: string[];
   reportLink?: ActionLink;
   githubLink?: ActionLink;
   demoLink?: ActionLink;
   image?: string;
+  imageFit?: "cover" | "contain";
   featured?: boolean;
 }
 

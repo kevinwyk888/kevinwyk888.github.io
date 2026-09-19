@@ -255,6 +255,18 @@ const en: SiteContent = {
       cta: { label: "See Full Project Overview", href: "/en/projects/" },
       items: [
         {
+          title: "Data-Driven Insights for UM Soccer: Teams, Players, and Match Outcomes",
+          year: "2026",
+          program: "University of Michigan · SURE",
+          abstract:
+            "Developed through the University of Michigan Summer Undergraduate Research in Engineering (SURE) program with Albert S. Berahas, this project uses 2025 Wyscout data to study team performance, player contributions, and match outcomes for UM Soccer. It combines interpretable player importance scores, ElasticNet feature selection with OLS analysis, and distribution-based win/draw/loss analysis to inform player assessment, training priorities, and match preparation.",
+          tags: ["Sports Analytics", "ElasticNet", "Statistical Modeling", "Player Evaluation"],
+          reportLink: { label: "Poster", href: "/reports/2026_SURE_Poster_final.pdf" },
+          image: "/images/projects/um-sure-soccer-2026.jpg",
+          imageFit: "contain",
+          featured: true,
+        },
+        {
           title: "Tuning the Step: How Wolfe Parameters Shape Optimization Performance",
           year: "2026",
           abstract:
@@ -430,7 +442,7 @@ const en: SiteContent = {
       {
         title: "Next-Term Goals",
         body: [
-          "Longer term, I hope to pursue a research-oriented master or PhD degree.",
+          "In the long term, I hope to pursue a research-oriented master or PhD degree.",
         ],
       },
     ],
@@ -439,16 +451,16 @@ const en: SiteContent = {
     eyebrow: "Project Overview",
     title: "Projects Overview",
     description:
-      "This page includes my previous project summaries paired with reports, demos.",
+      "This page includes my previous project summaries paired with reports, posters, and demos.",
     links: [],
     tagPlacement: "inline",
     stats: [
-      { label: "Projects shown", value: "7" },
-      { label: "Reports retained", value: "5 PDFs" },
+      { label: "Projects shown", value: "8" },
+      { label: "Reports & posters", value: "6 PDFs" },
       { label: "Public demos", value: "2 game links" },
     ],
-    tags: ["Computer Vision", "Statistics", "Game Development", "Modeling"],
-    note: "Long-form report links from the original site were preserved and moved into Astro's public directory.",
+    tags: ["Sports Analytics", "Computer Vision", "Statistics", "Game Development", "Modeling"],
+    note: "Explore the project summaries below and open the reports, research poster, or demos for more detail.",
     items: [],
   },
   cvPage: {
