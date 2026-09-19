@@ -13,7 +13,7 @@ const { section } = Astro.props;
     <div class="section-heading">
       <div>
         <h2>{section.title}</h2>
-        <p class="lede">{section.intro}</p>
+        {section.intro && <p class="lede">{section.intro}</p>}
       </div>
     </div>
 

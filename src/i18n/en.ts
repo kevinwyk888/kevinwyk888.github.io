@@ -59,10 +59,8 @@ const en: SiteContent = {
         "Research Communication",
       ],
       stats: [
-        { label: "Current focus", value: "Research, Dual-degree training" },
         { label: "Locations", value: "Ann Arbor / Shanghai" },
-        { label: "Core interests", value: "ML, optimization, Data analysis" },
-        { label: "Preferred languages", value: "English, Chinese" },
+        { label: "Preferred languages", value: "Mandarin Chinese, English" },
       ],
       primaryAction: { label: "Research Orientation", href: "/en/research/" },
       secondaryAction: { label: "Project Overview", href: "/en/projects/" },
@@ -72,8 +70,6 @@ const en: SiteContent = {
     education: {
       id: "education",
       title: "Education",
-      intro:
-        "My formal education is split across a dual-degree path in China and the United States, supported by international exchange experience.",
       items: [
         {
           institution: "University of Michigan, Ann Arbor",
@@ -112,8 +108,6 @@ const en: SiteContent = {
     experience: {
       id: "experience",
       title: "Extracurricular / Experience",
-      intro:
-        "Outside formal coursework, I have worked across research, teaching, technical service, student leadership, and project-based development.",
       items: [
         {
           role: "Undergraduate Research Assistant",
@@ -157,7 +151,7 @@ const en: SiteContent = {
           location: "Shanghai, China",
           kind: "Industry Project",
           summary:
-            "Worked under program requirements to build two games, including a classic brick-breaking title and a more experimental rhythm-platformer.",
+            "Worked under program requirements to build two games, including a classic brick breaking title and a more experimental rhythm platform game.",
           highlights: [
             "Built Mobius, a classic 2D collision-based game project.",
             "Built Soul Symphony, a 2D rhythm-platformer developed in Elm.",
@@ -170,7 +164,7 @@ const en: SiteContent = {
           location: "Shanghai, China",
           kind: "Service",
           summary:
-            "Participated in rural education support, exchange-student assistance, labor education events, and visitor guidance during public science activities.",
+            "Participated in rural education support, exchange student assistance, labor education events, and visitor guidance during public science activities.",
           highlights: [
             "Included support education in Hunan, campus service, and Space Day of China volunteering.",
             "Helped welcome and support exchange students from partner institutions.",
@@ -183,7 +177,7 @@ const en: SiteContent = {
       title: "Previous Courses",
       intro:
         "This section highlights courses that I found most impactful for my current research and technical interests. It is not an exhaustive transcript but rather a curated selection to show the breadth and depth of my training.",
-      note: "Each bubble shows the course title and where it was taken:\n UM = University of Michigan, SJTU = Shanghai Jiao Tong University.",
+      note: "Each bubble shows the course code, title, and where it was taken:\n UM = University of Michigan, SJTU = Shanghai Jiao Tong University.",
       groups: [
         {
           name: "Optimization, Probability & Decision",
@@ -193,7 +187,10 @@ const en: SiteContent = {
             { code: "IOE 202", title: "Operations Engineering & Analytics", weight: 3, detail: "UM" },
             { code: "IOE 310", title: "Optimization and Computational Methods", weight: 5, detail: "UM" },
             { code: "IOE 316", title: "Introduction to Markov Processes", weight: 4, detail: "UM" },
+            { code: "IOE 474", title: "Discrete-Event Simulation", weight: 4, detail: "UM" },
             { code: "IOE 511", title: "Continuous Optimization Methods", weight: 5, detail: "UM" },
+            { code: "IOE 515", title: "Stochastic Processes", weight: 5, detail: "UM" },
+            { code: "IOE 610", title: "Linear Programming II", weight: 5, detail: "UM" },
             { code: "ECE4010J", title: "Probabilistic Methods in Engineering", weight: 4, detail: "SJTU" },
           ],
         },
@@ -242,6 +239,7 @@ const en: SiteContent = {
           accent: "#f2e5ec",
           courses: [
             { code: "IOE 333", title: "Human Factors and Ergonomics", weight: 4, detail: "UM" },
+            { code: "IOE 463", title: "Measurement and Design of Work", weight: 4, detail: "UM" },
             { code: "HIS 102", title: "Chinese History in Global Perspectives", weight: 3, detail: "SJTU" },
             { code: "ART 201", title: "Science, Art and Philosophy", weight: 3, detail: "SJTU" },
             { code: "GER xxx", title: "German I", weight: 3, detail: "TUB" },

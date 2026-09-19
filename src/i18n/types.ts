@@ -61,7 +61,7 @@ export interface EducationEntry {
 export interface EducationSectionContent {
   id: string;
   title: string;
-  intro: string;
+  intro?: string;
   items: EducationEntry[];
 }
 
@@ -78,7 +78,7 @@ export interface ExperienceEntry {
 export interface ExperienceSectionContent {
   id: string;
   title: string;
-  intro: string;
+  intro?: string;
   items: ExperienceEntry[];
 }
 

@@ -3,9 +3,10 @@ import type { CoursesSectionContent } from "../i18n/types";
 
 interface Props {
   section: CoursesSectionContent;
+  showCourseCodes?: boolean;
 }
 
-const { section } = Astro.props;
+const { section, showCourseCodes = false } = Astro.props;
 const bubbleSize = (weight: number) => `${92 + weight * 14}px`;
 const introLines = section.intro.split("\n");
 const noteLines = section.note.split("\n");
@@ -54,7 +55,10 @@ const noteLines = section.note.split("\n");
                 title={course.code ? `${course.title} (${course.code})` : course.title}
                 aria-label={`${course.title}${course.code ? `, ${course.code}` : ""}${course.detail ? `, ${course.detail}` : ""}`}
               >
-                <span class="bubble-title">{course.title}</span>
+                <span class="bubble-title">
+                  {showCourseCodes && course.code && <span class="bubble-code">{course.code}</span>}
+                  {course.title}
+                </span>
                 {course.detail && <span class="bubble-meta">{course.detail}</span>}
               </li>
             ))}
@@ -139,6 +143,14 @@ const noteLines = section.note.split("\n");
     line-height: 1.18;
     max-width: 100%;
     overflow-wrap: anywhere;
+  }
+
+  .bubble-code {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--accent-strong);
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
   }
 
   .bubble-meta {
