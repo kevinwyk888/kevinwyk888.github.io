@@ -24,11 +24,13 @@ const { hero } = Astro.props;
         <p class="hero-subtitle">{hero.subtitle}</p>
         <p class="lede hero-description">{hero.description}</p>
 
-        <div class="pill-row">
-          {hero.badges.map((badge) => (
-            <span class="pill">{badge}</span>
-          ))}
-        </div>
+        {hero.badges.length > 0 && (
+          <div class="pill-row">
+            {hero.badges.map((badge) => (
+              <span class="pill">{badge}</span>
+            ))}
+          </div>
+        )}
 
         <div class="button-row hero-actions">
           <a class="button primary" href={hero.primaryAction.href}>{hero.primaryAction.label}</a>
@@ -36,7 +38,17 @@ const { hero } = Astro.props;
         </div>
       </div>
 
-      <aside class="hero-side">
+      <aside class:list={["hero-side", { "hero-side-with-interests": hero.interests }]}>
+        {hero.interests && (
+          <div class="hero-interests">
+            <h2>{hero.interests.title}</h2>
+            <ul class="pill-row hero-interest-list">
+              {hero.interests.items.map((interest) => (
+                <li class="pill">{interest}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         <ul class="meta-list">
           {hero.stats.map((stat) => (
             <li>
@@ -101,6 +113,39 @@ const { hero } = Astro.props;
     padding: 1.2rem;
     border-radius: 22px;
     background: linear-gradient(180deg, rgba(217, 229, 243, 0.68), rgba(245, 248, 252, 0.95));
+  }
+
+  .hero-side-with-interests {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.75rem;
+  }
+
+  .hero-interests h2 {
+    margin: 0 0 1rem;
+    color: var(--accent-strong);
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero-interest-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero-interest-list .pill {
+    border: 1px solid rgba(31, 75, 123, 0.1);
+    background: rgba(255, 255, 255, 0.75);
+    font-size: 0.86rem;
+  }
+
+  .hero-side-with-interests .meta-list {
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--border);
   }
 
   @media (max-width: 880px) {

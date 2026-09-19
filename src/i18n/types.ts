@@ -32,6 +32,10 @@ export interface HeroContent {
   subtitle: string;
   description: string;
   badges: string[];
+  interests?: {
+    title: string;
+    items: string[];
+  };
   stats: StatItem[];
   primaryAction: ActionLink;
   secondaryAction: ActionLink;
@@ -101,7 +105,7 @@ export interface CourseGroup {
 export interface CoursesSectionContent {
   id: string;
   title: string;
-  intro: string;
+  intro?: string;
   note: string;
   groups: CourseGroup[];
 }

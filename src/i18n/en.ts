@@ -50,14 +50,16 @@ const en: SiteContent = {
       description:
         "I am a dual-degree program undergraduate student in Shanghai Jiao Tong University Global College (Formerly, UM-SJTU Joint Institute). My current academic path combines Electrical and Computer Engineering at Shanghai Jiao Tong University with Industrial and Operations Engineering at the University of Michigan. I am especially interested in how optimization, statistics, and engineering modeling can be applied to real-world problems.",
 
-      badges: [
-        "Electrical & Computer Engineering",
-        "Industrial & Operations Engineering",
-        "Machine Learning",
-        "Optimization",
-        "Statistical Inference",
-        "Research Communication",
-      ],
+      badges: [],
+      interests: {
+        title: "Research Interests",
+        items: [
+          "Machine Learning",
+          "Optimization",
+          "Statistical Inference",
+          "Research Communication",
+        ],
+      },
       stats: [
         { label: "Locations", value: "Ann Arbor / Shanghai" },
         { label: "Preferred languages", value: "Mandarin Chinese, English" },
@@ -175,8 +177,6 @@ const en: SiteContent = {
     courses: {
       id: "courses",
       title: "Previous Courses",
-      intro:
-        "This section highlights courses that I found most impactful for my current research and technical interests. It is not an exhaustive transcript but rather a curated selection to show the breadth and depth of my training.",
       note: "Each bubble shows the course code, title, and where it was taken:\n UM = University of Michigan, SJTU = Shanghai Jiao Tong University.",
       groups: [
         {
@@ -417,7 +417,7 @@ const en: SiteContent = {
       {
         title: "Methods / Tools",
         body: [
-          "My current toolkit is built around Python, statistics, and experiment-driven engineering workflows. Depending on the project, I move between predictive modeling, evaluation design, visualization, and structured technical reporting.",
+          "My current toolkit is built around Python, statistics, and experiment-driven engineering workflows. ",
         ],
         items: [
           "Python and R for data analysis and modeling",
@@ -430,8 +430,7 @@ const en: SiteContent = {
       {
         title: "Next-Term Goals",
         body: [
-          "Next term, I plan to learn more through IOE 515 Stochastic Processes, EECS 498 Reinforcement Learning, and IOE 610 Linear Programming. I also want to keep exploring new fields while staying humble in front of knowledge.",
-          "Longer term, I hope to pursue a PhD.",
+          "Longer term, I hope to pursue a research-oriented master or PhD degree.",
         ],
       },
     ],

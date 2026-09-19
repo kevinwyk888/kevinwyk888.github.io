@@ -8,7 +8,7 @@ interface Props {
 
 const { section, showCourseCodes = false } = Astro.props;
 const bubbleSize = (weight: number) => `${92 + weight * 14}px`;
-const introLines = section.intro.split("\n");
+const introLines = section.intro?.split("\n") ?? [];
 const noteLines = section.note.split("\n");
 ---
 
@@ -17,14 +17,16 @@ const noteLines = section.note.split("\n");
     <div class="section-heading">
       <div>
         <h2>{section.title}</h2>
-        <p class="lede course-copy">
-          {introLines.map((line, index) => (
-            <>
-              {index > 0 && <br />}
-              {line}
-            </>
-          ))}
-        </p>
+        {section.intro && (
+          <p class="lede course-copy">
+            {introLines.map((line, index) => (
+              <>
+                {index > 0 && <br />}
+                {line}
+              </>
+            ))}
+          </p>
+        )}
       </div>
       <p class="page-note course-copy">
         {noteLines.map((line, index) => (
