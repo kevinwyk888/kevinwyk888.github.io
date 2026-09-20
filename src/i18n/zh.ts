@@ -45,23 +45,17 @@ const zh: SiteContent = {
     hero: {
       eyebrow: "个人简介",
       title: "王煜凯",
-      subtitle: "上海交通大学电子与计算机工程本科生\n密西根大学工业与运筹工程本科生",
+      subtitle: "电子与计算机工程、工业与运筹工程本科生",
       description:
-        "我是一名来自上海交通大学浦江国际学院（前密西根学院）的双学位本科生。目前，我的学术路径结合了上海交通大学的电子与计算机工程，以及密歇根大学的工业与运筹工程的各自优势。我的研究兴趣尚在探索中，当前，我正在努力学习优化、统计与工程建模相关知识，同时我也对机器学习和数据分析保持了高度热情。",
-      badges: [
-        "电子与计算机工程",
-        "工业与运筹工程",
-        "机器学习",
-        "运筹优化",
-        "统计推断",
-        "科研表达",
-      ],
+        "我是上海交通大学浦江国际学院（原上海交通大学密西根学院）双学位项目的本科生，目前分别在上海交通大学和密歇根大学学习电子与计算机工程、工业与运筹工程。我尤其关注如何将优化、统计和工程建模应用于现实问题。",
+      badges: [],
+      interests: {
+        title: "研究兴趣",
+        items: ["机器学习", "运筹优化", "统计推断", "科研交流"],
+      },
       stats: [
-        { label: "当前追求", value: "科研探索以及顺利完成双学位" },
         { label: "所在地点", value: "安娜堡 / 上海" },
-        { label: "核心兴趣", value: "机器学习、运筹优化、数据分析" },
-        { label: "常用语言", value: "中文、英文" },
-        { label: "注意", value: "由于网站文字初始版本是英文，部分中文表述可能不太标准，敬请见谅" },
+        { label: "常用语言", value: "普通话、英语" },
       ],
       primaryAction: { label: "研究方向", href: "/zh/research/" },
       secondaryAction: { label: "项目总览", href: "/zh/projects/" },
@@ -71,10 +65,9 @@ const zh: SiteContent = {
     education: {
       id: "education",
       title: "教育经历",
-      intro: "我的本科教育路径跨越中国与美国，并有一段在德国的短期交流经历。",
       items: [
         {
-          institution: "密西根大学安娜堡分校",
+          institution: "密歇根大学安娜堡分校",
           degree: "工业与运筹工程 学士",
           dates: "2025.08 - 2027.05",
           location: "美国密歇根州安娜堡",
@@ -107,11 +100,10 @@ const zh: SiteContent = {
     experience: {
       id: "experience",
       title: "课外 / 实践经历",
-      intro: "除了正式课程之外，我也持续积极地参与科研、助教、技术服务、学生工作和项目实践。",
       items: [
         {
           role: "本科科研助理",
-          organization: "密西根大学安娜堡分校工业与运筹工程系",
+          organization: "密歇根大学",
           dates: "2025.09 - 至今",
           location: "美国安娜堡",
           kind: "科研",
@@ -124,7 +116,7 @@ const zh: SiteContent = {
           dates: "2025.05 - 2025.08",
           location: "中国上海",
           kind: "教学",
-          summary: "帮助老师完成教学任务，帮助课后答疑，指导同学完成实验，批改作业报告和考试。",
+          summary: "协助实验课和数学课程的教学，并为学生提供学习支持。",
           highlights: [
             "PHYS1410J 物理实验（简谐振动）。",
             "MATH2140J 线性代数。",
@@ -136,16 +128,16 @@ const zh: SiteContent = {
           dates: "2023.10 - 2025.08",
           location: "中国上海",
           kind: "技术服务",
-          summary: "负责宿舍区有线与无线网络维护，响应同学报修并排查帮助维修宿舍有线网络问题。",
+          summary: "维护宿舍区的有线与无线网络，响应同学报修，排查网络稳定性问题。",
           highlights: [],
         },
         {
           role: "模拟暑期项目实习生",
-          organization: "SilverFOCS-24su（工程导论）",
+          organization: "SilverFOCS-24su",
           dates: "2024.05 - 2024.08",
           location: "中国上海",
           kind: "项目实践",
-          summary: "按照项目要求完成两款游戏开发，包括一款经典打砖块游戏和一款的节奏平台跳跃游戏。",
+          summary: "按照项目要求开发了两款游戏，包括一款经典打砖块游戏和一款更具实验性的节奏平台跳跃游戏。",
           highlights: [
             "完成了经典 2D 碰撞类游戏项目 Mobius。",
             "完成了使用 Elm 开发的 2D 节奏平台跳跃游戏 Soul Symphony。",
@@ -153,15 +145,14 @@ const zh: SiteContent = {
         },
         {
           role: "志愿服务与国际项目支持",
-          organization: "觅源青志队，\n浦江国际学院国际项目办公室",
+          organization: "觅源青年志愿者队，\n上海交通大学浦江国际学院国际项目办公室",
           dates: "2023.12 - 2025.05",
           location: "中国上海",
           kind: "服务",
-          summary: "参与支教、交换生协助、劳动教育活动等",
+          summary: "参与乡村支教、交换生协助、劳动教育活动，以及科普活动中的访客引导。",
           highlights: [
-            "代表上海交通大学前往湖南曹炎中学支教，教授诗词、手工和朗诵相关课程，并组织课外活动。",
-            "中国航天日志愿者；觅源青志队志愿者",
-            "协助接待来自合作院校的交换学生，帮助他们快速适应中国/交大的生活",
+            "参与湖南支教、校园服务及中国航天日志愿活动。",
+            "协助接待并支持来自合作院校的交换学生。",
           ],
         },
       ],
@@ -169,9 +160,7 @@ const zh: SiteContent = {
     courses: {
       id: "courses",
       title: "课程经历",
-      intro:
-        "这一部分展示了对我当前研究兴趣和技术能力影响最大的课程。以下并不是我上的完整课程记录，只是为了更清晰地呈现我在不同方向上的探索和学习。",
-      note: "每个气泡显示课程名称以及上课学校：\nUM = 密西根大学，SJTU = 上海交通大学。\n 由于翻译问题，美国学校的课程名称可能不完全准确。",
+      note: "每个气泡显示课号、课程名称及修读学校：\nUM = 密歇根大学，SJTU = 上海交通大学。",
       groups: [
         {
           name: "优化、概率与决策",
@@ -181,7 +170,10 @@ const zh: SiteContent = {
             { code: "IOE 202", title: "运筹工程与分析", weight: 3, detail: "UM" },
             { code: "IOE 310", title: "优化与计算方法", weight: 5, detail: "UM" },
             { code: "IOE 316", title: "马尔可夫过程导论", weight: 4, detail: "UM" },
+            { code: "IOE 474", title: "离散事件仿真", weight: 4, detail: "UM" },
             { code: "IOE 511", title: "连续优化方法", weight: 5, detail: "UM" },
+            { code: "IOE 515", title: "随机过程", weight: 5, detail: "UM" },
+            { code: "IOE 610", title: "线性规划 II", weight: 5, detail: "UM" },
             { code: "ECE4010J", title: "工程中的概率方法", weight: 4, detail: "SJTU" },
           ],
         },
@@ -202,7 +194,7 @@ const zh: SiteContent = {
           courses: [
             { code: "ECE2800J", title: "程序设计与基础数据结构", weight: 4, detail: "SJTU" },
             { code: "ECE2810J", title: "数据结构与算法", weight: 5, detail: "SJTU" },
-            { code: "ENGR1510J", title: "计算机导论（进阶）", weight: 4, detail: "SJTU" },
+            { code: "ENGR1510J", title: "计算机与编程导论（进阶）", weight: 4, detail: "SJTU" },
           ],
         },
         {
@@ -221,8 +213,8 @@ const zh: SiteContent = {
           accent: "#dfe9dd",
           courses: [
             { code: "ECE2150J", title: "电路导论", weight: 4, detail: "SJTU" },
-            { code: "ECE2160J", title: "信号与系统", weight: 4, detail: "SJTU" },
-            { code: "ECE2300J", title: "电磁学", weight: 4, detail: "SJTU" },
+            { code: "ECE2160J", title: "信号与系统导论", weight: 4, detail: "SJTU" },
+            { code: "ECE2300J", title: "电磁学 I", weight: 4, detail: "SJTU" },
           ],
         },
         {
@@ -230,6 +222,7 @@ const zh: SiteContent = {
           accent: "#f2e5ec",
           courses: [
             { code: "IOE 333", title: "人因工程与工效学", weight: 4, detail: "UM" },
+            { code: "IOE 463", title: "工作测量与设计", weight: 4, detail: "UM" },
             { code: "HIS 102", title: "全球视野下的中国历史", weight: 3, detail: "SJTU" },
             { code: "ART 201", title: "科学、艺术与哲学", weight: 3, detail: "SJTU" },
             { code: "GER xxx", title: "德语 I", weight: 3, detail: "TUB" },
@@ -243,6 +236,18 @@ const zh: SiteContent = {
       intro: "",
       cta: { label: "查看完整项目总览", href: "/zh/projects/" },
       items: [
+        {
+          title: "数据驱动的密歇根大学足球分析：球队、球员与比赛结果",
+          year: "2026",
+          program: "密歇根大学 · SURE",
+          abstract:
+            "本项目在密歇根大学工程本科生暑期科研计划（SURE）中与 Albert S. Berahas 合作开展，使用 2025 年 Wyscout 数据分析密歇根大学足球队的球队表现、球员贡献与比赛结果。项目结合可解释的球员重要性评分、ElasticNet 特征筛选与普通最小二乘（OLS）分析，以及基于分布的胜平负分析，为球员评估、训练重点和赛前准备提供参考。",
+          tags: ["体育数据分析", "ElasticNet", "统计建模", "球员评估"],
+          reportLink: { label: "海报", href: "/reports/2026_SURE_Poster_final.pdf" },
+          image: "/images/projects/um-sure-soccer-2026.jpg",
+          imageFit: "contain",
+          featured: true,
+        },
         {
           title: "步长调优：Wolfe 参数如何影响优化性能",
           year: "2026",
@@ -337,7 +342,7 @@ const zh: SiteContent = {
     contact: {
       id: "contact",
       title: "联系方式",
-      intro: "如果你对我的研究或项目经历感兴趣，欢迎通过以下方式联系我。",
+      intro: "如果你有兴趣开展科研合作、讨论课程或交流项目，欢迎通过以下方式联系我。",
       channels: [
         {
           label: "个人邮箱",
@@ -370,7 +375,7 @@ const zh: SiteContent = {
     eyebrow: "研究方向",
     title: "研究方向",
     description:
-      "我当前的主要由两个正在进行中的项目。一个是密西根大学官方暑研项目：聚焦密歇根大学足球队的数据驱动 AI 分析。另一个关注LLM 编码智能体轨迹中的退化监测。这两个项目共同体现了我对决策支持、优化方法以及数据分析的兴趣。",
+      "我目前的研究主要围绕两个正在进行的项目展开：一个聚焦密歇根大学足球队的数据驱动 AI 分析，另一个关注大语言模型（LLM）编程智能体运行轨迹中的性能退化监测。这两个项目共同体现了我对决策支持、优化方法和可靠的应用型 AI 系统的兴趣。",
     tagPlacement: "inline",
     tags: [
       "足球数据分析",
@@ -381,16 +386,16 @@ const zh: SiteContent = {
     ],
     stats: [
       { label: "进行中的项目", value: "2 个" },
-      { label: "应用场景", value: "足球分析 ， AI 智能体" },
+      { label: "应用场景", value: "足球数据分析 + AI 智能体" },
       { label: "当前重点", value: "决策支持、监测、应用机器学习" },
     ],
     sections: [
       {
         title: "当前进行中的项目",
-        body: ["目前，我的研究方向最适合通过两个 ongoing 项目来说明。"],
+        body: ["目前，这两个正在进行的项目最能体现我的研究方向。"],
         items: [
-          "用数据驱动 AI 赋能密歇根大学足球。导师：Albert Berahas（aberahas@umich.edu）。这个项目与密歇根大学男足和女足合作，利用真实的比赛表现、球探与追踪数据，构建分析工具、预测模型和决策支持流程，把高维足球数据转化为对训练设计和战术决策有帮助的洞见。",
-          "LLM 智能体异常检测。导师：Raed Al Kontar（alkontar@umich.edu）。该项目与 Rongbo Zhu 合作开展，关注 LLM 编码智能体中的可靠性问题。从更高层角度看，它探索如何用轻量级方式在长轨迹彻底失败之前监测并识别性能退化。",
+          "WinAI：以数据驱动 AI 助力密歇根大学足球队。导师：Albert Berahas（aberahas@umich.edu）。该项目利用真实的大学足球比赛表现、球探与追踪数据，为密歇根大学男足和女足构建分析工具、预测模型和决策支持流程。",
+          "LLM 智能体异常检测。导师：Raed Al Kontar（alkontar@umich.edu）。该项目与 Rongbo Zhu 合作开展，研究 LLM 编程智能体的可靠性，探索如何通过轻量级方法，在长时间运行的智能体轨迹最终失败之前监测性能退化。",
         ],
       },
       {
@@ -403,7 +408,7 @@ const zh: SiteContent = {
       {
         title: "方法 / 工具",
         body: [
-          "我当前的工具箱主要围绕 Python、统计分析以及实验驱动的工程流程展开。根据不同项目，我的职责会在预测建模、评估设计、可视化表达与结构化技术写作之间切换。",
+          "我目前主要使用 Python、统计方法和以实验为基础的工程工作流程。",
         ],
         items: [
           "使用 Python 和 R 进行数据分析与建模",
@@ -416,8 +421,7 @@ const zh: SiteContent = {
       {
         title: "下学期目标",
         body: [
-          "下学期我计划通过 IOE 515 随机过程、EECS 498 强化学习 和 IOE 610 线性规划 继续学习。同时，我也希望持续探索新的领域，并保持对知识的敬畏。路漫漫其修远，吾将上下而求索。",
-          "更长远来看，我有继续攻读博士学位的计划。但是目前还没有具体成熟的想法。",
+          "从长远来看，我希望攻读研究型硕士或博士学位。",
         ],
       },
     ],
@@ -425,16 +429,16 @@ const zh: SiteContent = {
   projectsPage: {
     eyebrow: "项目总览",
     title: "项目总览",
-    description: "这部分介绍了我过去项目的一些情况，包括代码，报告以及一些演示。",
+    description: "本页汇总了我过往项目的简介，并提供相关报告、海报和演示。",
     links: [],
     tagPlacement: "inline",
     stats: [
-      { label: "展示项目", value: "7 个" },
-      { label: "保留报告", value: "5 份 PDF" },
-      { label: "公开演示", value: "2 个链接" },
+      { label: "展示项目", value: "8 个" },
+      { label: "报告与海报", value: "6 份 PDF" },
+      { label: "公开演示", value: "2 个游戏链接" },
     ],
-    tags: ["计算机视觉", "统计分析", "游戏开发", "建模"],
-    note: "旧站点中的长篇项目报告链接已被保留，并迁移到 Astro 的 public 目录中。",
+    tags: ["体育数据分析", "计算机视觉", "统计分析", "游戏开发", "建模"],
+    note: "浏览下方项目简介，可通过报告、研究海报或演示了解更多细节。",
     items: [],
   },
   cvPage: {

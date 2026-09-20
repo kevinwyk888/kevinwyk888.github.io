@@ -5,7 +5,6 @@ import CourseBubbleChart from "../../components/CourseBubbleChart.astro";
 import EducationSection from "../../components/EducationSection.astro";
 import ExperienceSection from "../../components/ExperienceSection.astro";
 import HeroBanner from "../../components/HeroBanner.astro";
-import ProjectsOverview from "../../components/ProjectsOverview.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import content from "../../i18n/zh";
 import { getHeaderNav } from "../../i18n/getHeaderNav";
@@ -28,7 +27,6 @@ import { getHeaderNav } from "../../i18n/getHeaderNav";
   {content.home.about && <AboutSection section={content.home.about} />}
   <EducationSection section={content.home.education} />
   <ExperienceSection section={content.home.experience} />
-  <CourseBubbleChart section={content.home.courses} />
-  <ProjectsOverview section={content.home.projects} />
+  <CourseBubbleChart section={content.home.courses} showCourseCodes />
   <ContactSection section={content.home.contact} />
 </BaseLayout>
