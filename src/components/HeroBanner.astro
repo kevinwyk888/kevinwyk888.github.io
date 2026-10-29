@@ -33,6 +33,14 @@ const { hero } = Astro.props;
         )}
 
         <div class="button-row hero-actions">
+          <a
+            class="button secondary"
+            href={hero.cvAction.href}
+            target={hero.cvAction.external ? "_blank" : undefined}
+            rel={hero.cvAction.external ? "noopener noreferrer" : undefined}
+          >
+            {hero.cvAction.label}
+          </a>
           <a class="button primary" href={hero.primaryAction.href}>{hero.primaryAction.label}</a>
           <a class="button secondary" href={hero.secondaryAction.href}>{hero.secondaryAction.label}</a>
         </div>

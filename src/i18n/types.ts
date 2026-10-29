@@ -37,6 +37,7 @@ export interface HeroContent {
     items: string[];
   };
   stats: StatItem[];
+  cvAction: ActionLink;
   primaryAction: ActionLink;
   secondaryAction: ActionLink;
   bannerImage: string;

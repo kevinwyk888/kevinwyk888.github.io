@@ -64,6 +64,7 @@ const en: SiteContent = {
         { label: "Locations", value: "Ann Arbor / Shanghai" },
         { label: "Preferred languages", value: "Mandarin Chinese, English" },
       ],
+      cvAction: { label: "View My CV", href: "/CV.pdf", external: true },
       primaryAction: { label: "Research Orientation", href: "/en/research/" },
       secondaryAction: { label: "Project Overview", href: "/en/projects/" },
       bannerImage: "/images/banner.jpg",
@@ -147,7 +148,7 @@ const en: SiteContent = {
           ],
         },
         {
-          role: "Imitated Summer Intern",
+          role: "Summer Intern",
           organization: "SilverFOCS-24su",
           dates: "2024.05 - 2024.08",
           location: "Shanghai, China",

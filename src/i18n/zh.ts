@@ -57,6 +57,7 @@ const zh: SiteContent = {
         { label: "所在地点", value: "安娜堡 / 上海" },
         { label: "常用语言", value: "普通话、英语" },
       ],
+      cvAction: { label: "查看我的简历", href: "/CV.pdf", external: true },
       primaryAction: { label: "研究方向", href: "/zh/research/" },
       secondaryAction: { label: "项目总览", href: "/zh/projects/" },
       bannerImage: "/images/banner.jpg",
@@ -132,7 +133,7 @@ const zh: SiteContent = {
           highlights: [],
         },
         {
-          role: "模拟暑期项目实习生",
+          role: "暑期项目实习生",
           organization: "SilverFOCS-24su",
           dates: "2024.05 - 2024.08",
           location: "中国上海",
